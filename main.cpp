@@ -15,7 +15,7 @@ int main() {
                 << "Welcome to Journal Encryptor! Keep your private journal entries encrypted and safe from prying eyes.\n"
                 << "Please enter your username: ";
         std::cin >> username;
-        std::cout << "\nPlease enter your password: ";
+        std::cout << "Please enter your password: ";
         std::cin >> password;
 
         login_flag = false;
