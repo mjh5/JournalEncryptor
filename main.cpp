@@ -5,5 +5,20 @@
 #include <iostream>
 
 int main() {
-    std::cout << "This finally fucking works" << std::endl;
-}
+
+    bool login_flag = true;
+    std::string username;
+    std::string password;
+
+    while (login_flag) {
+        std::cout
+                << "Welcome to Journal Encryptor! Keep your private journal entries encrypted and safe from prying eyes.\n"
+                << "Please enter your username: ";
+        std::cin >> username;
+        std::cout << "\nPlease enter your password: ";
+        std::cin >> password;
+
+        login_flag = false;
+    }
+};
+
