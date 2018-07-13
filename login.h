@@ -7,13 +7,15 @@
 
 #include <map>
 
+using namespace std;
+
 class Login {
 
 private:
-    const std::string kUserDataFilePath = "user_data";
+    const string kUserDataFilePath = "user_data";
 
-    std::map <std::string, std::string> user_passwords_;
-    std::map<std::string, int> user_cypher_keys_;
+    map<string, string> user_passwords_;
+    map<string, int> user_cypher_keys_;
 
 public:
     void loadUserData();

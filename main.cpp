@@ -6,11 +6,13 @@
 
 #include "login.h"
 
+using namespace std;
+
 int main() {
 
     bool login_flag = true;
-    std::string username;
-    std::string password;
+    string username;
+    string password;
 
     Login* userLogin = new Login();
     userLogin->loadUserData();
@@ -18,12 +20,12 @@ int main() {
     /*
     while (login_flag) {
 
-        std::cout
+        cout
                 << "Welcome to Journal Encryptor! Keep your private journal entries encrypted and safe from prying eyes.\n"
                 << "Please enter your username: ";
-        std::cin >> username;
-        std::cout << "Please enter your password: ";
-        std::cin >> password;
+        cin >> username;
+        cout << "Please enter your password: ";
+        cin >> password;
 
 
         if (validPassword(username, password)) {

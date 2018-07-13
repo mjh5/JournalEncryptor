@@ -6,17 +6,19 @@
 #include <iostream>
 #include "login.h"
 
+using namespace std;
+
 void Login::loadUserData() {
-    std::fstream data_stream;
+    ifstream data_stream;
     data_stream.open(kUserDataFilePath);
 
     if (data_stream.is_open()) {
-        std::string test;
+        string test;
         data_stream >> test;
 
-        std::cout << test << std::endl;
+        cout << test << std::endl;
     } else {
-        std::cout << "stream not open" << std::endl;
+        cout << "stream not open" << std::endl;
     }
 }
 
