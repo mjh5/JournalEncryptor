@@ -10,9 +10,13 @@ void Login::loadUserData() {
     std::fstream data_stream;
     data_stream.open(kUserDataFilePath);
 
-    std::string test;
-    data_stream >> test;
+    if (data_stream.is_open()) {
+        std::string test;
+        data_stream >> test;
 
-    std::cout << test;
+        std::cout << test << std::endl;
+    } else {
+        std::cout << "stream not open" << std::endl;
+    }
 }
 

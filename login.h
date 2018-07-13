@@ -10,7 +10,7 @@
 class Login {
 
 private:
-    const std::string kUserDataFilePath = "user_data.txt";
+    const std::string kUserDataFilePath = "user_data";
 
     std::map <std::string, std::string> user_passwords_;
     std::map<std::string, int> user_cypher_keys_;
