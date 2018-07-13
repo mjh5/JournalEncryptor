@@ -18,7 +18,9 @@ int main() {
         std::cout << "Please enter your password: ";
         std::cin >> password;
 
-        login_flag = false;
+        if (validEmail(username, password)) {
+            login_flag = false;
+        }
     }
 };
 
