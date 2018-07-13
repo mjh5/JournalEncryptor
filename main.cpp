@@ -14,7 +14,7 @@ int main() {
     string username;
     string password;
 
-    Login* userLogin = new Login();
+    auto userLogin = new Login();
     userLogin->loadUserData();
 
     /*
