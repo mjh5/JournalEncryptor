@@ -12,7 +12,12 @@ int main() {
     std::string username;
     std::string password;
 
+    Login* userLogin = new Login();
+    userLogin->loadUserData();
+
+    /*
     while (login_flag) {
+
         std::cout
                 << "Welcome to Journal Encryptor! Keep your private journal entries encrypted and safe from prying eyes.\n"
                 << "Please enter your username: ";
@@ -20,9 +25,11 @@ int main() {
         std::cout << "Please enter your password: ";
         std::cin >> password;
 
+
         if (validPassword(username, password)) {
             login_flag = false;
         }
     }
+     */
 };
 

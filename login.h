@@ -5,9 +5,13 @@
 #ifndef JOURNALENCRYPTOR_LOGIN_H
 #define JOURNALENCRYPTOR_LOGIN_H
 
+#include <map>
+
 class Login {
 
 private:
+    const std::string kUserDataFilePath = "user_data.txt";
+
     std::map <std::string, std::string> user_passwords_;
     std::map<std::string, int> user_cypher_keys_;
 
