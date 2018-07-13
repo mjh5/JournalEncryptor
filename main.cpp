@@ -4,6 +4,8 @@
 
 #include <iostream>
 
+#include "login.h"
+
 int main() {
 
     bool login_flag = true;
@@ -18,7 +20,7 @@ int main() {
         std::cout << "Please enter your password: ";
         std::cin >> password;
 
-        if (validEmail(username, password)) {
+        if (validPassword(username, password)) {
             login_flag = false;
         }
     }
