@@ -1,5 +1,2 @@
-OPEN ME
-
-testing
-
-please read this data
+example password 123
+mike abc123 456
