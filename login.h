@@ -12,7 +12,7 @@ using namespace std;
 class Login {
 
 private:
-    const string kUserDataFilePath = "JournalEncryptor/user_data.txt";
+    const string kUserDataFilePath = "user_data.txt";
 
     map<string, string> user_passwords_;
     map<string, int> user_cypher_keys_;
