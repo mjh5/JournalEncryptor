@@ -20,9 +20,9 @@ private:
 public:
     void loadUserData();
 
-    bool validPassword(std::string username);
+    bool validPassword(string username, string password);
 
-    int getCypherKey(std::string username);
+    int getCypherKey(string username);
 };
 
 #endif //JOURNALENCRYPTOR_LOGIN_H
