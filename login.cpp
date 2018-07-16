@@ -15,9 +15,13 @@ void Login::loadUserData() {
         exit(1);
     }
 
-    string test;
-    data_stream >> test;
-    cout << test << std::endl;
-    data_stream.close();
+    string username;
+    string password;
+    int cipher_key;
+    while (!data_stream.eof()) {
+        data_stream >> username >> password >> cipher_key;
+        user_passwords_.insert(pair(username, password));
+        user_cypher_keys_.insert(pair(username, cipher_key));
+    }
 }
 
