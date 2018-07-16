@@ -34,3 +34,11 @@ bool UserData::validPassword(string username, string password) {
     return saved_password == password;
 }
 
+int UserData::getCypherKey(string username) {
+    if (user_cypher_keys_.find(username) == user_cypher_keys_.end()) {
+        cout << "Error: No cipher key found for user " << username << endl;
+        return -1;
+    }
+    return user_cypher_keys_.at(username);
+}
+

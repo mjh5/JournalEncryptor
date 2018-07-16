@@ -12,6 +12,7 @@ using namespace std;
 class UserData {
 
 private:
+    //File path to saved user data, had to exit and re-enter the directory to get working.
     const string kUserDataFilePath = "../JournalEncryptor/user_data.txt";
 
     map<string, string> user_passwords_;
