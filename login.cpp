@@ -29,15 +29,11 @@ void Login::loadUserData() {
 }
 
 bool Login::validPassword(string username, string password) {
-    string saved_password = user_passwords_.at(username);
-    if (saved_password.empty()) {
-        cout << "Invalid username, please try again." << endl;
+    if (user_passwords_.find(username) == user_passwords_.end()) {
         return false;
-    } else if (saved_password != password) {
-        cout << "Incorrect password, please try again." << endl;
-        return false;
-    } else {
-        return true;
     }
+
+    string saved_password = user_passwords_.at(username);
+    return saved_password == password;
 }
 

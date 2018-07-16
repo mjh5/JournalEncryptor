@@ -15,23 +15,18 @@ int main() {
     string password;
 
     auto userLogin = new Login();
-    userLogin->loadUserData();
+    //userLogin->loadUserData();
 
-    /*
+    cout << "Welcome to Journal Encryptor! Keep your private journal entries encrypted and safe from prying eyes.\n";
     while (login_flag) {
-
-        cout
-                << "Welcome to Journal Encryptor! Keep your private journal entries encrypted and safe from prying eyes.\n"
-                << "Please enter your username: ";
+        cout << "Please enter your username: ";
         cin >> username;
         cout << "Please enter your password: ";
         cin >> password;
 
-
-        if (validPassword(username, password)) {
+        if (userLogin->validPassword(username, password)) {
             login_flag = false;
         }
     }
-     */
 };
 
