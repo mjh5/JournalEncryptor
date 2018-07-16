@@ -15,7 +15,7 @@ int main() {
     string password;
 
     auto userLogin = new Login();
-    //userLogin->loadUserData();
+    userLogin->loadUserData();
 
     cout << "Welcome to Journal Encryptor! Keep your private journal entries encrypted and safe from prying eyes.\n";
     while (login_flag) {

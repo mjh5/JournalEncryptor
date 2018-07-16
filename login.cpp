@@ -29,10 +29,7 @@ void Login::loadUserData() {
 }
 
 bool Login::validPassword(string username, string password) {
-    if (user_passwords_.find(username) == user_passwords_.end()) {
-        return false;
-    }
-
+    if (user_passwords_.find(username) == user_passwords_.end()) { return false; }
     string saved_password = user_passwords_.at(username);
     return saved_password == password;
 }
