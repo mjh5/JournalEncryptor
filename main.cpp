@@ -26,6 +26,8 @@ int main() {
 
         if (userLogin->validPassword(username, password)) {
             login_flag = false;
+        } else {
+            cout << "Invalid username and password. Please try again." << endl;
         }
     }
 };
