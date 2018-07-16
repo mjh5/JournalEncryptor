@@ -4,7 +4,7 @@
 
 #include <iostream>
 
-#include "login.h"
+#include "user_data.h"
 
 using namespace std;
 
@@ -14,7 +14,7 @@ int main() {
     string username;
     string password;
 
-    auto userLogin = new Login();
+    auto userLogin = new UserData();
     userLogin->loadUserData();
 
     cout << "Welcome to Journal Encryptor! Keep your private journal entries encrypted and safe from prying eyes.\n";

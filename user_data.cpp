@@ -4,11 +4,11 @@
 
 #include <fstream>
 #include <iostream>
-#include "login.h"
+#include "user_data.h"
 
 using namespace std;
 
-void Login::loadUserData() {
+void UserData::loadUserData() {
     ifstream data_stream(kUserDataFilePath);
     if (data_stream.fail()) {
         cout << "Unable to load user login data." << std::endl;
@@ -28,7 +28,7 @@ void Login::loadUserData() {
     data_stream.clear();
 }
 
-bool Login::validPassword(string username, string password) {
+bool UserData::validPassword(string username, string password) {
     if (user_passwords_.find(username) == user_passwords_.end()) { return false; }
     string saved_password = user_passwords_.at(username);
     return saved_password == password;

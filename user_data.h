@@ -9,7 +9,7 @@
 
 using namespace std;
 
-class Login {
+class UserData {
 
 private:
     const string kUserDataFilePath = "../JournalEncryptor/user_data.txt";
