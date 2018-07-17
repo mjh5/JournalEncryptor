@@ -30,4 +30,16 @@ bool Encryptor::encrypt(string file_path, int cipher_key) {
         }
         encrypted_text += encrypted_line + "\n";
     }
+
+    in_steam.close();
+    in_steam.clear();
+
+    out_stream.open(file_path);
+    if (!out_stream) {
+        cout << "Unable to write to file " << file_path << endl;
+        return false;
+    }
+    out_stream << encrypted_text << endl;
+    out_stream.close();
+    out_stream.clear();
 }
