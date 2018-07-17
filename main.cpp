@@ -30,5 +30,10 @@ int main() {
             cout << "Invalid username and password. Please try again." << endl;
         }
     }
+
+    cout << "Welcome " << username << "! Please select a command."
+         << "\n1. Encrypt"
+         << "\n2. Decrypt"
+         << "\n3. Exit";
 };
 
