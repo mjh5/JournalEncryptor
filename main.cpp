@@ -31,9 +31,28 @@ int main() {
         }
     }
 
-    cout << "Welcome " << username << "! Please select a command."
-         << "\n1. Encrypt"
-         << "\n2. Decrypt"
-         << "\n3. Exit";
+    cout << "Welcome " << username << "!";
+    int user_input;
+    do {
+        cout << "\nPlease select a command."
+             << "\n1. Encrypt"
+             << "\n2. Decrypt"
+             << "\n3. Exit" << endl;
+        cin >> user_input;
+
+        switch (user_input) {
+            case 1:
+                //Encryption prompt
+                break;
+            case 2:
+                //Decryption prompt
+                break;
+            case 3:
+                cout << "Thank you for using Journal Encryptor! Have a nice day!";
+                break;
+            default:
+                cout << "Invalid command. Please try again." << endl;
+        }
+    } while (user_input != 3);
 };
 
