@@ -5,6 +5,7 @@
 #include <iostream>
 
 #include "user_data.h"
+#include "encryptor.h"
 
 using namespace std;
 
@@ -31,6 +32,8 @@ int main() {
         }
     }
 
+    auto encryptor = new Encryptor();
+
     cout << "Welcome " << username << "!";
     int user_input;
     do {
@@ -41,8 +44,12 @@ int main() {
         cin >> user_input;
 
         switch (user_input) {
+            string file_path;
             case 1:
                 //Encryption prompt
+                cout << "Please enter the file to encrypt: ";
+                cin >> file_path;
+                encryptor->encrypt(file_path, userLogin->getCypherKey(username));
                 break;
             case 2:
                 //Decryption prompt

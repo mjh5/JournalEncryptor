@@ -42,4 +42,5 @@ bool Encryptor::encrypt(string file_path, int cipher_key) {
     out_stream << encrypted_text << endl;
     out_stream.close();
     out_stream.clear();
+    return true;
 }
