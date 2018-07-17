@@ -5,4 +5,21 @@
 #ifndef JOURNALENCRYPTOR_ENCRYPTOR_H
 #define JOURNALENCRYPTOR_ENCRYPTOR_H
 
+#include <fstream>
+
+using namespace std;
+
+class Encryptor {
+
+private:
+    ifstream in_steam;
+    ofstream out_stream;
+
+public:
+    bool encrypt(string file_path, int cipher_key);
+
+    bool decrypt(string file_path, int cipher_key);
+
+};
+
 #endif //JOURNALENCRYPTOR_ENCRYPTOR_H
