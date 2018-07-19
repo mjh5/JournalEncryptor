@@ -46,13 +46,14 @@ int main() {
         string file_path;
         switch (user_input) {
             case 1:
-                //Encryption prompt
                 cout << "Please enter the file to encrypt: ";
                 cin >> file_path;
                 encryptor->encrypt(file_path, userLogin->getCypherKey(username));
                 break;
             case 2:
-                //Decryption prompt
+                cout << "Please enter the file to decrypt: ";
+                cin >> file_path;
+                encryptor->decrypt(file_path, userLogin->getCypherKey(username));
                 break;
             case 3:
                 cout << "Thank you for using Journal Encryptor! Have a nice day!";
