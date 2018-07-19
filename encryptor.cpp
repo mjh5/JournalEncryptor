@@ -44,3 +44,7 @@ bool Encryptor::encrypt(string file_path, int cipher_key) {
     out_stream.clear();
     return true;
 }
+
+bool Encryptor::decrypt(string file_path, int cipher_key) {
+    encrypt(file_path, cipher_key * -1);
+}
