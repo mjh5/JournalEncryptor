@@ -46,5 +46,38 @@ bool Encryptor::encrypt(string file_path, int cipher_key) {
 }
 
 bool Encryptor::decrypt(string file_path, int cipher_key) {
-    encrypt(file_path, cipher_key * -1);
+    in_steam.open(file_path);
+    if (!in_steam) {
+        cout << "Unable to open file " << file_path << endl;
+        return false;
+    }
+
+    string encrypted_text;
+    string line;
+    while (getline(in_steam, line)) {
+        string encrypted_line;
+        for (int i = 0; i < line.length(); ++i) {
+            if (isupper(line[i])) {
+                encrypted_line += char(int(line[i]-cipher_key-65)%26 +65);
+            } else if (islower(line[i])) {
+                encrypted_line += char(int(line[i]-cipher_key-97)%26 +97);
+            } else if (isdigit(line[i])) {
+                encrypted_line += char(int(line[i]-cipher_key-48)%10 +48);
+            }
+        }
+        encrypted_text += encrypted_line + "\n";
+    }
+
+    in_steam.close();
+    in_steam.clear();
+
+    out_stream.open(file_path);
+    if (!out_stream) {
+        cout << "Unable to write to file " << file_path << endl;
+        return false;
+    }
+    out_stream << encrypted_text << endl;
+    out_stream.close();
+    out_stream.clear();
+    return true;
 }
