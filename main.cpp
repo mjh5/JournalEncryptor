@@ -43,8 +43,8 @@ int main() {
              << "\n3. Exit" << endl;
         cin >> user_input;
 
+        string file_path;
         switch (user_input) {
-            string file_path;
             case 1:
                 //Encryption prompt
                 cout << "Please enter the file to encrypt: ";
