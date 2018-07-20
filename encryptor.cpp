@@ -9,9 +9,7 @@
 //Referenced https://www.geeksforgeeks.org/caesar-cipher/ when writing encrypt and decrypt
 
 bool Encryptor::encrypt(string file_path, int cipher_key) {
-    in_steam.open(file_path);
-    if (!in_steam) {
-        cout << "Unable to open file " << file_path << endl;
+    if (!readFile(file_path)) {
         return false;
     }
 
@@ -46,9 +44,7 @@ bool Encryptor::encrypt(string file_path, int cipher_key) {
 }
 
 bool Encryptor::decrypt(string file_path, int cipher_key) {
-    in_steam.open(file_path);
-    if (!in_steam) {
-        cout << "Unable to open file " << file_path << endl;
+    if (!readFile(file_path)) {
         return false;
     }
 
@@ -80,4 +76,18 @@ bool Encryptor::decrypt(string file_path, int cipher_key) {
     out_stream.close();
     out_stream.clear();
     return true;
+}
+
+bool Encryptor::readFile(string file_path) {
+    //Add path to current directory, then user path
+    in_steam.open("../JournalEncryptor/" + file_path);
+    if (!in_steam) {
+        cout << "Unable to open file " << file_path << endl;
+        return false;
+    }
+    return true;
+}
+
+bool Encryptor::openOutStream(string file_path) {
+
 }
