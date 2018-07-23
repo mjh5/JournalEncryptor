@@ -12,7 +12,7 @@ using namespace std;
 class Encryptor {
 
 private:
-    ifstream in_steam;
+    ifstream in_stream;
     ofstream out_stream;
 
 public:
@@ -20,10 +20,13 @@ public:
 
     bool decrypt(string file_path, int cipher_key);
 
-    bool readFile(string file_path);
+    bool openInStream(string file_path);
 
     bool openOutStream(string file_path);
 
+    bool closeInStream();
+
+    bool closeOutStream();
 };
 
 #endif //JOURNALENCRYPTOR_ENCRYPTOR_H

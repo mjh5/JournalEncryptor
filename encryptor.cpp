@@ -9,13 +9,13 @@
 //Referenced https://www.geeksforgeeks.org/caesar-cipher/ when writing encrypt and decrypt
 
 bool Encryptor::encrypt(string file_path, int cipher_key) {
-    if (!readFile(file_path)) {
+    if (!openInStream(file_path)) {
         return false;
     }
 
     string encrypted_text;
     string line;
-    while (getline(in_steam, line)) {
+    while (getline(in_stream, line)) {
         string encrypted_line;
         for (int i = 0; i < line.length(); ++i) {
             if (isupper(line[i])) {
@@ -28,29 +28,22 @@ bool Encryptor::encrypt(string file_path, int cipher_key) {
         }
         encrypted_text += encrypted_line + "\n";
     }
+    closeInStream();
 
-    in_steam.close();
-    in_steam.clear();
-
-    out_stream.open(file_path);
-    if (!out_stream) {
-        cout << "Unable to write to file " << file_path << endl;
-        return false;
-    }
+    openOutStream(file_path);
     out_stream << encrypted_text << endl;
-    out_stream.close();
-    out_stream.clear();
+    closeOutStream();
     return true;
 }
 
 bool Encryptor::decrypt(string file_path, int cipher_key) {
-    if (!readFile(file_path)) {
+    if (!openInStream(file_path)) {
         return false;
     }
 
-    string encrypted_text;
+    string decrypted_text;
     string line;
-    while (getline(in_steam, line)) {
+    while (getline(in_stream, line)) {
         string encrypted_line;
         for (int i = 0; i < line.length(); ++i) {
             if (isupper(line[i])) {
@@ -61,27 +54,20 @@ bool Encryptor::decrypt(string file_path, int cipher_key) {
                 encrypted_line += char(int(line[i]-cipher_key-48)%10 +48);
             }
         }
-        encrypted_text += encrypted_line + "\n";
+        decrypted_text += encrypted_line + "\n";
     }
+    closeInStream();
 
-    in_steam.close();
-    in_steam.clear();
-
-    out_stream.open(file_path);
-    if (!out_stream) {
-        cout << "Unable to write to file " << file_path << endl;
-        return false;
-    }
-    out_stream << encrypted_text << endl;
-    out_stream.close();
-    out_stream.clear();
+    openOutStream(file_path);
+    out_stream << decrypted_text << endl;
+    closeOutStream();
     return true;
 }
 
-bool Encryptor::readFile(string file_path) {
+bool Encryptor::openInStream(string file_path) {
     //Add path to current directory, then user path
-    in_steam.open("../JournalEncryptor/" + file_path);
-    if (!in_steam) {
+    in_stream.open("../JournalEncryptor/" + file_path);
+    if (!in_stream) {
         cout << "Unable to open file " << file_path << endl;
         return false;
     }
@@ -89,5 +75,21 @@ bool Encryptor::readFile(string file_path) {
 }
 
 bool Encryptor::openOutStream(string file_path) {
+    //Add path to current directory, then user path
+    out_stream.open("../JournalEncryptor/" + file_path);
+    if (!out_stream) {
+        cout << "Unable to open file " << file_path << endl;
+        return false;
+    }
+    return true;
+}
 
+bool Encryptor::closeInStream() {
+    in_stream.close();
+    in_stream.clear();
+}
+
+bool Encryptor::closeOutStream() {
+    out_stream.close();
+    out_stream.clear();
 }
