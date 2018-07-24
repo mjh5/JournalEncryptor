@@ -34,7 +34,7 @@ int main() {
 
     auto encryptor = new Encryptor();
 
-    cout << "Welcome " << username << "!";
+    cout << "\nWelcome " << username << "!";
     int user_input;
     do {
         cout << "\nPlease select a command."
