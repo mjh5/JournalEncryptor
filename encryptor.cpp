@@ -46,19 +46,19 @@ bool Encryptor::decrypt(string file_path, int cipher_key) {
     string decrypted_text;
     string line;
     while (getline(in_stream, line)) {
-        string encrypted_line;
+        string decrypted_line;
         for (int i = 0; i < line.length(); ++i) {
             if (isupper(line[i])) {
-                encrypted_line += char(int(line[i] - cipher_key - 65) % 26 + 65);
+                decrypted_line += char(int(line[i] - cipher_key - 65) % 26 + 65);
             } else if (islower(line[i])) {
-                encrypted_line += char(int(line[i] - cipher_key - 97) % 26 + 97);
+                decrypted_line += char(int(line[i] - cipher_key - 97) % 26 + 97);
             } else if (isdigit(line[i])) {
-                encrypted_line += char(int(line[i] - cipher_key - 48) % 10 + 48);
+                decrypted_line += char(int(line[i] - cipher_key - 48) % 10 + 48);
             } else if (isspace(line[i])) {
-                encrypted_line += " ";
+                decrypted_line += " ";
             }
         }
-        decrypted_text += encrypted_line + "\n";
+        decrypted_text += decrypted_line + "\n";
     }
     closeInStream();
 
