@@ -24,8 +24,8 @@ bool Encryptor::encrypt(string file_path, int cipher_key) {
                 encrypted_line += char(int(line[i] + cipher_key - 97) % 26 + 97);
             } else if (isdigit(line[i])) {
                 encrypted_line += char(int(line[i] + cipher_key - 48) % 10 + 48);
-            } else if (isspace(line[i])) {
-                encrypted_line += " ";
+            } else {
+                encrypted_line += line[i];
             }
         }
         encrypted_text += encrypted_line + "\n";
@@ -54,8 +54,8 @@ bool Encryptor::decrypt(string file_path, int cipher_key) {
                 decrypted_line += char(int(line[i] - cipher_key - 97) % 26 + 97);
             } else if (isdigit(line[i])) {
                 decrypted_line += char(int(line[i] - cipher_key - 48) % 10 + 48);
-            } else if (isspace(line[i])) {
-                decrypted_line += " ";
+            } else {
+                decrypted_line += line[i];
             }
         }
         decrypted_text += decrypted_line + "\n";

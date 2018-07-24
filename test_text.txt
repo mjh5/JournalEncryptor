@@ -4,4 +4,7 @@ abc
 
 has blank lines and spaces
 
+what happens to s_mbols
+
+
 
