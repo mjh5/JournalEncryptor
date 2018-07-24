@@ -2,8 +2,6 @@ abc
 
 123
 
-hasblanklinesandspaces
-
-
+has blank lines and spaces
 
 

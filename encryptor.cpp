@@ -19,11 +19,13 @@ bool Encryptor::encrypt(string file_path, int cipher_key) {
         string encrypted_line;
         for (int i = 0; i < line.length(); ++i) {
             if (isupper(line[i])) {
-                encrypted_line += char(int(line[i]+cipher_key-65)%26 +65);
+                encrypted_line += char(int(line[i] + cipher_key - 65) % 26 + 65);
             } else if (islower(line[i])) {
-                encrypted_line += char(int(line[i]+cipher_key-97)%26 +97);
+                encrypted_line += char(int(line[i] + cipher_key - 97) % 26 + 97);
             } else if (isdigit(line[i])) {
-                encrypted_line += char(int(line[i]+cipher_key-48)%10 +48);
+                encrypted_line += char(int(line[i] + cipher_key - 48) % 10 + 48);
+            } else if (isspace(line[i])) {
+                encrypted_line += " ";
             }
         }
         encrypted_text += encrypted_line + "\n";
@@ -47,11 +49,13 @@ bool Encryptor::decrypt(string file_path, int cipher_key) {
         string encrypted_line;
         for (int i = 0; i < line.length(); ++i) {
             if (isupper(line[i])) {
-                encrypted_line += char(int(line[i]-cipher_key-65)%26 +65);
+                encrypted_line += char(int(line[i] - cipher_key - 65) % 26 + 65);
             } else if (islower(line[i])) {
-                encrypted_line += char(int(line[i]-cipher_key-97)%26 +97);
+                encrypted_line += char(int(line[i] - cipher_key - 97) % 26 + 97);
             } else if (isdigit(line[i])) {
-                encrypted_line += char(int(line[i]-cipher_key-48)%10 +48);
+                encrypted_line += char(int(line[i] - cipher_key - 48) % 10 + 48);
+            } else if (isspace(line[i])) {
+                encrypted_line += " ";
             }
         }
         decrypted_text += encrypted_line + "\n";
